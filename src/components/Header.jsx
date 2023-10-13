@@ -5,12 +5,15 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRange } from 'react-date-range';
 import {format} from "date-fns";
+import { useNavigate , createSearchParams} from "react-router-dom";
+
 
 const Header = () => {
 
 
     const [isOpenOption , setIsOpenOption] = useState(false);
     const [isOpenDate , setIsOpenDate] = useState(false);
+    const [destination , setDestination] = useState("");
     const [date , setDate] = useState([{
         startDate: new Date(),
         endDate: new Date(),
@@ -22,6 +25,8 @@ const Header = () => {
         room : 1
     })
 
+    const navigate = useNavigate();
+
     const handleOptions = (type , operation) => {
         setOptions((prev) => {
             return {
@@ -32,12 +37,26 @@ const Header = () => {
     }
 
 
+    const handleSearch = () => {
+        const encodedParams = createSearchParams({
+            date : JSON.stringify(date),
+            destination,
+            options : JSON.stringify(options)
+        })
+
+        navigate({
+            pathname : "/hotels",
+            search : encodedParams.toString()
+        })
+    }
+
+
     return (
         <header className="p-2 rounded-md ring-1 ring-gray-300 grid grid-cols-12">
             <div className="flex flex-col md:flex-row justify-start items-start md:justify-around mb-4 md:mb-2 mt-2 col-span-12 md:col-span-6">
                 <div className="flex items-center mb-3 md:mb-0">
                     <MdLocationOn color="#ff0000" size="20"/>
-                    <input type="text" placeholder="where to go ?" className="w-36 md:w-56 pl-2"/>
+                    <input value={destination} onChange={e => setDestination(e.target.value)} type="text" placeholder="where to go ?" className="w-36 md:w-56 pl-2"/>
                 </div>
                 <div className="flex items-center relative">
                     <div onClick={() => setIsOpenDate(prev => !prev)}  className="cursor-pointer flex text-sm">
@@ -67,7 +86,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex items-center">
-                    <button className="p-2 text-center rounded-md bg-violet-600 text-white text-lg"><MdOutlineSearch /></button>
+                    <button onClick={handleSearch} className="p-2 text-center rounded-md bg-violet-600 text-white text-lg"><MdOutlineSearch /></button>
                 </div>
             </div>
         </header>
