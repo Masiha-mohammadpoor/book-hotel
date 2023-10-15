@@ -4,13 +4,15 @@ import { useHotels } from "./HotelsProvider";
 
 
 const Hotels = () => {
+    console.log("heeloo")
 
-    const {isLoading , hotels} = useHotels();
+    const {isLoading , data} = useHotels();
+    console.log(data , isLoading)
 
     if(isLoading) return <p>loading...</p>
     return (
         <section className="flex flex-col">
-            {hotels.map(item => {
+            {data.map(item => {
                 return <Link to={`hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
                     <div className="flex mb-3">
                         <div className="mr-2">

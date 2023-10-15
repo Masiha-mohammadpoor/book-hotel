@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
@@ -50,3 +48,4 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+

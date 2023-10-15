@@ -6,12 +6,10 @@ import { Toaster } from 'react-hot-toast'
 import { Routes , Route } from "react-router-dom";
 import HotelsProvider from "./components/HotelsProvider";
 
-
-
 const App = () => {
   return (
     <>
-    <HotelsProvider>
+      <HotelsProvider>
       <Header/>
       <Routes>
         <Route path="/" element={<LocationList/>}/>
@@ -20,9 +18,9 @@ const App = () => {
           <Route path=":id" element={<div>single</div>}/>
         </Route>
       </Routes>
-      <Toaster/>
       </HotelsProvider>
-    </>
+      <Toaster/>
+      </>
   )
 }
 
