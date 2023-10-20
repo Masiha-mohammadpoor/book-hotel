@@ -7,13 +7,12 @@ const Hotels = () => {
     console.log("heeloo")
 
     const {isLoading , data} = useHotels();
-    console.log(data , isLoading)
 
     if(isLoading) return <p>loading...</p>
     return (
         <section className="flex flex-col">
             {data.map(item => {
-                return <Link to={`hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
+                return <Link key={item.id} to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
                     <div className="flex mb-3">
                         <div className="mr-2">
                             <img className="rounded-md w-20 h-20 object-cover" src={item.picture_url.url} alt={item.name} />

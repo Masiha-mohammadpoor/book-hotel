@@ -13,7 +13,7 @@ const App = () => {
       <Header/>
       <Routes>
         <Route path="/" element={<LocationList/>}/>
-        <Route path="/hotels" element={<AppLayout/>}>
+        <Route path="hotels" element={<AppLayout/>}>
           <Route index element={<Hotels/>}/>
           <Route path=":id" element={<div>single</div>}/>
         </Route>
