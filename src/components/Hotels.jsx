@@ -4,7 +4,6 @@ import { useHotels } from "./HotelsProvider";
 
 
 const Hotels = () => {
-    console.log("heeloo")
 
     const {isLoading , data} = useHotels();
 

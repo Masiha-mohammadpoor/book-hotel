@@ -5,6 +5,8 @@ import LocationList from "./components/LocationList";
 import { Toaster } from 'react-hot-toast'
 import { Routes , Route } from "react-router-dom";
 import HotelsProvider from "./components/HotelsProvider";
+import SingleHotel from "./components/SingleHotel";
+
 
 const App = () => {
   return (
@@ -15,7 +17,7 @@ const App = () => {
         <Route path="/" element={<LocationList/>}/>
         <Route path="hotels" element={<AppLayout/>}>
           <Route index element={<Hotels/>}/>
-          <Route path=":id" element={<div>single</div>}/>
+          <Route path=":id" element={<SingleHotel/>}/>
         </Route>
       </Routes>
       </HotelsProvider>
