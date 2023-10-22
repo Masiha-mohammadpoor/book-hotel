@@ -13,7 +13,7 @@ const Bookmark = () => {
         <h1 className="text-xl font-bold">Bookmark List</h1>
         <div className="mt-3">
             {data.map(item => {
-                return <Link key={item.id} to={`/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
+                return <Link key={item.id} to={`/bookmark/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
                 <div className="flex bg-slate-200 mb-2 p-2 justify-start items-center rounded-md w-80">
                     <ReactCountryFlag svg countryCode={item.countryCode} style={{fontSize:"40px" , marginRight : "20px"}}/>
                     <div>
