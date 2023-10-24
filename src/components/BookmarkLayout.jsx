@@ -10,7 +10,6 @@ const BookmarkLayout = () => {
     const {currentBookmark , isLoadingCurrentBookmark} = useBookmark();
     const [mapLocation , setMapLocation] = useState([{latitude : 48.56 ,longitude :  2.35}]);
     const {id} = useParams();
-    console.log(id)
 
 
     useEffect(() => {

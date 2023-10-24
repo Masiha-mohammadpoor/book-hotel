@@ -4,17 +4,17 @@ import {useState , useEffect} from "react";
 import { useHotels } from "./HotelsProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import useGeoLocation from "../hooks/useGeoLocation";
+import useUrlLocation from "../hooks/useUrlLocation";
+
 
 const HotelsMap = ({markerLocations}) => {
 
     const [mapCenter , setMapCenter] = useState([48.56 , 2.35]);
-    const [searchParams , setSearchParams] = useSearchParams();
     const {isLoading , data} = useHotels();
     const {isLoading : loadingGeoLocation , location , error , getLocation} = useGeoLocation();
 
-
-    const lat = searchParams.get("lat");
-    const lng = searchParams.get("lng");
+    
+    const {lat , lng} = useUrlLocation();
 
     useEffect(() => {
       if(lat && lng) setMapCenter([lat , lng]);
