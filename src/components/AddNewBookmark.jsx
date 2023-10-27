@@ -2,9 +2,11 @@ import { useNavigate } from "react-router-dom";
 import useUrlLocation from "../hooks/useUrlLocation";
 import { useEffect, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
-
-
 import axios from "axios";
+import toast from "react-hot-toast";
+import { useBookmark } from "./BookmarkProvider";
+
+
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 const AddNewBookmark = () => {
@@ -16,6 +18,7 @@ const AddNewBookmark = () => {
     const [isLoadingGeocoding, setIsLoadingGeocoding] = useState("");
     const [geocodingError, setGeocodingError] = useState("");
     const navigate = useNavigate();
+    const {postData} = useBookmark()
 
     const backButtonHandler = () => {
         navigate(-1)
@@ -44,6 +47,23 @@ const AddNewBookmark = () => {
         getData()
     }, [lat, lng])
 
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        if(!country || !city) toast.error("please enter city and country name!!!");
+
+        const newBookmark = {
+            cityName: city,
+            country,
+            countryCode: countryCode,
+            latitude: lat,
+            longitude: lng,
+            host_location: `${city} - ${country}`
+        }
+
+        await postData(newBookmark);
+        navigate("/bookmark");
+    }
+
     if(isLoadingGeocoding) return <p>loading...</p>
     if(geocodingError) return <p>{geocodingError}</p>
     return (
@@ -58,8 +78,8 @@ const AddNewBookmark = () => {
                     <ReactCountryFlag svg countryCode={countryCode} style={{fontSize:"20px"}}/>
                 </div>
                 <div className="w-80 flex justify-between items-center mt-6">
-                    <button className="p-2 rounded-md bg-slate-500 text-white" onClick={backButtonHandler}>&larr; Back</button>
-                    <button className="p-2 rounded-md bg-blue-500 text-white">Add Bookmark</button>
+                    <button className="p-2 rounded-md bg-slate-500 text-white" onClick={() => navigate("/bookmark")}>&larr; Back</button>
+                    <button className="p-2 rounded-md bg-blue-500 text-white" onClick={submitHandler}>Add Bookmark</button>
                 </div>
             </form>
         </div>

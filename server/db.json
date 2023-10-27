@@ -1368,6 +1368,42 @@
       "longitude": "67.78003711374224",
       "host_location": "Baba Kot Pakistan",
       "id": 8
+    },
+    {
+      "cityName": "Leudeville",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "48.58648321250484",
+      "longitude": "2.3295419924454346",
+      "host_location": "Leudeville - France",
+      "id": 9
+    },
+    {
+      "cityName": "Leudeville",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "48.58648321250484",
+      "longitude": "2.3295419924454346",
+      "host_location": "Leudeville - France",
+      "id": 10
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "countryCode": "DE",
+      "latitude": "52.449864345194776",
+      "longitude": "13.310651658614736",
+      "host_location": "Berlin - Germany",
+      "id": 11
+    },
+    {
+      "cityName": "Mahidasht",
+      "country": "Iran (Islamic Republic of)",
+      "countryCode": "IR",
+      "latitude": "34.35422559240176",
+      "longitude": "46.70743930421572",
+      "host_location": "Mahidasht - Iran (Islamic Republic of)",
+      "id": 12
     }
   ]
 }
