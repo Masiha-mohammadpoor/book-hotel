@@ -11,10 +11,14 @@ import BookmarkProvider from "./components/BookmarkProvider"
 import Bookmark from "./components/Bookmark";
 import SingleBookmark from "./components/SingleBookmark";
 import AddNewBookmark from "./components/AddNewBookmark";
+import Login from "./components/Login";
+import AuthProvider from "./components/AuthProvider";
+
 
 const App = () => {
   return (
     <>
+    <AuthProvider>
     <BookmarkProvider>
       <HotelsProvider>
       <Header/>
@@ -29,9 +33,11 @@ const App = () => {
           <Route path=":id" element={<SingleBookmark/>}/>
           <Route path="add" element={<AddNewBookmark/>}/>
         </Route>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
       </HotelsProvider>
       </BookmarkProvider>
+      </AuthProvider>
       <Toaster/>
       </>
   )

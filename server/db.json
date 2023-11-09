@@ -1334,13 +1334,31 @@
       "id": 1
     },
     {
-      "cityName": "Kornik",
-      "country": "Poland",
-      "countryCode": "PL",
-      "latitude": "52.2484618871765",
-      "longitude": "17.109877668070556",
-      "host_location": "Kornik - Poland",
+      "cityName": "Vert-le-Grand",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "48.5769472087072",
+      "longitude": "2.3441260302642735",
+      "host_location": "Vert-le-Grand - France",
       "id": 2
+    },
+    {
+      "cityName": "Saint-Vrain",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "48.555332771269065",
+      "longitude": "2.334346146079902",
+      "host_location": "Saint-Vrain - France",
+      "id": 3
+    },
+    {
+      "cityName": "Bretigny-sur-Orge",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "48.5880727785208",
+      "longitude": "2.3223265556971073",
+      "host_location": "Bretigny-sur-Orge - France",
+      "id": 4
     }
   ]
 }

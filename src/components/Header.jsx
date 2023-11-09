@@ -5,7 +5,8 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRange } from 'react-date-range';
 import {format} from "date-fns";
-import { useNavigate , createSearchParams} from "react-router-dom";
+import { useNavigate , createSearchParams , Link} from "react-router-dom";
+import { useAuth } from "./AuthProvider";
 
 
 const Header = () => {
@@ -26,6 +27,7 @@ const Header = () => {
     })
 
     const navigate = useNavigate();
+    const {user} = useAuth();
 
     const handleOptions = (type , operation) => {
         setOptions((prev) => {
@@ -88,6 +90,15 @@ const Header = () => {
                 <div className="flex items-center">
                     <button onClick={handleSearch} className="p-2 text-center rounded-md bg-violet-600 text-white text-lg"><MdOutlineSearch /></button>
                 </div>
+                <div className="flex items-center">
+                    <Link to="/bookmark">bookmarks</Link>
+                    <span className="text-violet-600 font-bold text-2xl"> / </span>
+                    {
+                        user ? <span>{user.name}</span> :
+                        <Link to="/login">login</Link>
+                    }
+                </div>
+
             </div>
         </header>
     );
