@@ -1,5 +1,5 @@
 import { MdLocationOn, MdOutlineCalendarMonth, MdOutlineSearch } from "react-icons/md";
-import {FaPlus , FaMinus} from "react-icons/fa";
+import {FaPlus , FaMinus , FaSignOutAlt} from "react-icons/fa";
 import { useState } from "react";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
@@ -27,7 +27,7 @@ const Header = () => {
     })
 
     const navigate = useNavigate();
-    const {user} = useAuth();
+    const {user , logout} = useAuth();
 
     const handleOptions = (type , operation) => {
         setOptions((prev) => {
@@ -94,7 +94,10 @@ const Header = () => {
                     <Link to="/bookmark">bookmarks</Link>
                     <span className="text-violet-600 font-bold text-2xl"> / </span>
                     {
-                        user ? <span>{user.name}</span> :
+                        user ? <span className="flex items-center justify-center">
+                            <span>{user.name}</span>
+                            <button onClick={logout}><FaSignOutAlt color="#ff0000" style={{marginLeft:"10px"}}/></button>
+                            </span> :
                         <Link to="/login">login</Link>
                     }
                 </div>
